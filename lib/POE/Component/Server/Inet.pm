@@ -1,14 +1,13 @@
 package POE::Component::Server::Inet;
 
+#ABSTRACT: a super-server daemon implementation in POE
+
 use strict;
 use warnings;
 use POE qw(Wheel::SocketFactory Wheel::Run Wheel::ReadWrite Filter::Stream);
 use Net::Netmask;
 use Socket;
 use Carp;
-use vars qw($VERSION);
-
-$VERSION = '0.04';
 
 sub spawn {
   my $package = shift;
@@ -330,12 +329,9 @@ sub _wheel_error {
 sub _get_datagram {
 }
 
-1;
-__END__
+qq[Inet in'it];
 
-=head1 NAME
-
-POE::Component::Server::Inet - a super-server daemon implementation in POE
+=pod
 
 =head1 SYNOPSIS
 
@@ -382,8 +378,8 @@ POE::Component::Server::Inet - a super-server daemon implementation in POE
 
 =head1 DESCRIPTION
 
-POE::Component::Server::Inet is a Inetd ( L<http://en.wikipedia.org/wiki/Inetd> ) C<super-server>
-implementation in POE. It currently only supports TCP based connections.
+POE::Component::Server::Inet is an Inetd ( L<http://en.wikipedia.org/wiki/Inetd> ) C<super-server>
+implementation in L<POE>. It currently only supports TCP based connections.
 
 You may either specify programs to run or use coderefs.
 
@@ -442,16 +438,6 @@ Terminates the component. All connections and wheels are closed.
 
 =back
 
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
-
-=head1 LICENSE
-
-Copyright C<(c)> Chris Williams
-
-This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
-
 =head1 SEE ALSO
 
 L<POE>
@@ -460,4 +446,4 @@ L<http://en.wikipedia.org/wiki/Inetd>
 
 L<POE::Wheel::Run>
 
-
+=cut
